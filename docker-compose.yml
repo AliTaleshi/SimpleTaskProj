@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  oracle-xe:
+    image: gvenzl/oracle-xe:latest
+    container_name: oracle-xe
+    ports:
+      - "1521:1521"
+      - "5500:5500"  # Oracle EM Express
+    environment:
+      - ORACLE_PWD=oracle
+      - ORACLE_USERNAME=system
+    volumes:
+      - db_data:/opt/oracle/oradata
+    restart: always
+
+volumes:
+  db_data:
+    driver: local
