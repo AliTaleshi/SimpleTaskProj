@@ -16,6 +16,7 @@ public class User {
 
     // TODO: Check for all fields that could they be null or not? (use @Nullable or not?)
     // TODO: Check fields need @Pattern or not?
+    // TODO: Add security
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

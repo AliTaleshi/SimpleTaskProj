@@ -12,7 +12,5 @@ public interface UserService {
 
     void updateUser(User user);
 
-    void deleteUser(int id);
-
-    void addMultipleProduct(List<Product> products);
+    void deleteUser(User user);
 }
