@@ -8,25 +8,27 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
-@Table(name = "PRODUCT")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "PRODUCT")
 public class Product {
+    @EmbeddedId
+    private ProductKey id;  // Composite key
 
-    // TODO: Check for all fields that could they be null or not?
-    // TODO: Check fields need @Pattern or not?
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String name;
-    private LocalDateTime productDate;
     private String manufacturePhone;
-    private String manufactureEmail;
     private Boolean isAvailable;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    public LocalDateTime getProductDate() {
+        return id.getProductDate();
+    }
+
+    public String getManufactureEmail() {
+        return id.getManufactureEmail();
+    }
 }
